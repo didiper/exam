@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>化學式測驗</title>
+    <title>測驗首頁</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -13,186 +13,31 @@
         background-color: #f9f9f9;
       }
       .container {
-        margin-top: 50px;
+        margin-top: 100px;
       }
-      .question-box {
-        display: inline-block;
-        padding: 20px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        font-size: 24px;
-      }
-      .answer {
-        margin-top: 20px;
-        font-size: 30px;
-        color: #333;
-        display: none; /* Initially hidden */
-      }
-      .button-group {
-        margin-top: 20px;
-      }
-      button {
-        margin: 5px;
-        padding: 10px 20px;
-        font-size: 18px;
+      .button {
+        margin: 20px;
+        padding: 15px 30px;
+        font-size: 20px;
         background-color: #007bff;
         color: white;
         border: none;
-        border-radius: 5px;
+        border-radius: 8px;
         cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
       }
-      button:hover {
+      .button:hover {
         background-color: #0056b3;
       }
     </style>
   </head>
   <body>
-    <div class="input-group">
-      <input
-        type="text"
-        id="user-answer"
-        placeholder="輸入你的答案"
-        style="padding: 10px; font-size: 18px; width: 300px"
-      />
-      <button onclick="checkAnswer()">確定</button>
-    </div>
-    <div id="result" style="margin-top: 20px; font-size: 24px"></div>
-
     <div class="container">
-      <!-- 顯示化學式 -->
-      <div class="question-box" id="chemical-formula">H<sup>+</sup></div>
-      <div class="button-group">
-        <button onclick="prevQuestion()">上一題</button>
-        <button id="toggle-answer" onclick="toggleAnswer()">顯示答案</button>
-        <button onclick="randomQuestion()">下一題</button>
-      </div>
-      <div class="answer" id="answer-text">氫離子</div>
+      <h1>歡迎來到測驗中心</h1>
+      <p>請選擇你想要參加的測驗：</p>
+      <a href="english_quiz.html" class="button">英文單字考試</a>
+      <a href="chemistry_quiz.html" class="button">化學式考試</a>
     </div>
-
-    <script>
-      // 題庫區（使用更新的題庫）
-
-      const questionBank = [
-        { formula: "H<sup>+</sup>", answer: "氫離子" },
-        { formula: "Li<sup>+</sup>", answer: "鋰離子" },
-        { formula: "Na<sup>+</sup>", answer: "鈉離子" },
-        { formula: "K<sup>+</sup>", answer: "鉀離子" },
-        { formula: "Be<sup>2+</sup>", answer: "鈹離子" },
-        { formula: "Mg<sup>2+</sup>", answer: "鎂離子" },
-        { formula: "Ca<sup>2+</sup>", answer: "鈣離子" },
-        { formula: "Sr<sup>2+</sup>", answer: "鍶離子" },
-        { formula: "Ba<sup>2+</sup>", answer: "鋇離子" },
-        { formula: "Pb<sup>2+</sup>", answer: "鉛離子" },
-        { formula: "Ag<sup>+</sup>", answer: "銀離子" },
-        { formula: "Hg<sup>2+</sup>", answer: "亞汞離子" },
-        { formula: "Cu<sup>+</sup>", answer: "亞銅離子" },
-        { formula: "Al<sup>3+</sup>", answer: "鋁離子" },
-        { formula: "F<sup>-</sup>", answer: "氟離子" },
-        { formula: "Cl<sup>-</sup>", answer: "氯離子" },
-        { formula: "Br<sup>-</sup>", answer: "溴離子" },
-        { formula: "I<sup>-</sup>", answer: "碘離子" },
-      ];
-      /*
-備註（其他題目）：
-{ formula: "HCl<sub>(g)</sub>", answer: "氯化氫" },
-{ formula: "HCl<sub>(aq)</sub>", answer: "氫氯酸（俗稱：鹽酸）" },
-{ formula: "HBr<sub>(g)</sub>", answer: "溴化氫" },
-{ formula: "HBr<sub>(aq)</sub>", answer: "氫溴酸" },
-{ formula: "H<sub>2</sub>S<sub>(g)</sub>", answer: "硫化氫" },
-{ formula: "H<sub>2</sub>S<sub>(aq)</sub>", answer: "氫硫酸" },
-{ formula: "HCN<sub>(g)</sub>", answer: "氰化氫" },
-{ formula: "HCN<sub>(aq)</sub>", answer: "氫氰酸" },
-{ formula: "HNO<sub>3</sub>", answer: "硝酸" },
-{ formula: "H<sub>2</sub>SO<sub>4</sub>", answer: "硫酸" },
-{ formula: "H<sub>3</sub>PO<sub>4</sub>", answer: "磷酸" },
-{ formula: "H<sub>2</sub>CO<sub>3</sub>", answer: "碳酸" },
-{ formula: "HClO", answer: "次氯酸" },
-{ formula: "HClO<sub>2</sub>", answer: "亞氯酸" },
-{ formula: "HClO<sub>3</sub>", answer: "氯酸" },
-{ formula: "HClO<sub>4</sub>", answer: "過氯酸" },
-{ formula: "H<sub>2</sub>SO<sub>3</sub>", answer: "亞硫酸" },
-{ formula: "HNO<sub>2</sub>", answer: "亞硝酸" },
-{ formula: "H<sub>3</sub>PO<sub>3</sub>", answer: "亞磷酸" },
-{ formula: "H<sub>3</sub>PO<sub>2</sub>", answer: "次磷酸" },
-{ formula: "HMnO<sub>4</sub>", answer: "過錳酸" },
-{ formula: "H<sub>2</sub>MnO<sub>4</sub>", answer: "錳酸" },
-{ formula: "NaOH", answer: "氫氧化鈉" },
-{ formula: "Ca(OH)<sub>2</sub>", answer: "氫氧化鈣" },
-{ formula: "Fe(OH)<sub>3</sub>", answer: "氫氧化鐵" },
-{ formula: "Fe(OH)<sub>2</sub>", answer: "氫氧化亞鐵" },
-{ formula: "Sn(OH)<sub>4</sub>", answer: "氫氧化錫" },
-{ formula: "Sn(OH)<sub>2</sub>", answer: "氫氧化亞錫" },
-{ formula: "C<sub>2</sub>H<sub>2</sub>O<sub>4</sub>", answer: "草酸" },
-*/
-
-      // 當前題目索引
-      let currentQuestionIndex = 0;
-
-      // 顯示/隱藏答案功能
-      function toggleAnswer() {
-        const answerElement = document.getElementById("answer-text");
-        const toggleButton = document.getElementById("toggle-answer");
-        if (answerElement.style.display === "none") {
-          answerElement.style.display = "block";
-          toggleButton.textContent = "隱藏答案";
-        } else {
-          answerElement.style.display = "none";
-          toggleButton.textContent = "顯示答案";
-        }
-      }
-
-      // 隨機選擇題目功能
-      function randomQuestion() {
-        let newQuestionIndex;
-        do {
-          newQuestionIndex = Math.floor(Math.random() * questionBank.length);
-        } while (newQuestionIndex === currentQuestionIndex); // 確保不是當前題目
-
-        currentQuestionIndex = newQuestionIndex;
-        updateQuestion();
-
-        // 清除輸入框的文字和結果顯示
-        document.getElementById("user-answer").value = ""; // 清空文字框
-        document.getElementById("result").textContent = ""; // 清空結果顯示
-      }
-
-      // 切換上一題功能
-      function prevQuestion() {
-        currentQuestionIndex =
-          (currentQuestionIndex - 1 + questionBank.length) %
-          questionBank.length;
-        updateQuestion();
-      }
-
-      // 更新題目與答案顯示
-      function updateQuestion() {
-        const questionElement = document.getElementById("chemical-formula");
-        const answerElement = document.getElementById("answer-text");
-        const toggleButton = document.getElementById("toggle-answer");
-
-        // 更新題目與答案
-        questionElement.innerHTML = questionBank[currentQuestionIndex].formula;
-        answerElement.textContent = questionBank[currentQuestionIndex].answer;
-
-        // 重置答案顯示狀態
-        answerElement.style.display = "none";
-        toggleButton.textContent = "顯示答案";
-      }
-      function checkAnswer() {
-        const userAnswer = document.getElementById("user-answer").value.trim(); // 使用者輸入答案
-        const correctAnswer = questionBank[currentQuestionIndex].answer; // 正確答案
-        const resultElement = document.getElementById("result");
-
-        if (userAnswer === correctAnswer) {
-          resultElement.textContent = "正確！";
-          resultElement.style.color = "green";
-        } else {
-          resultElement.textContent = `錯誤！正確答案是：${correctAnswer}`;
-          resultElement.style.color = "red";
-        }
-      }
-    </script>
   </body>
 </html>
