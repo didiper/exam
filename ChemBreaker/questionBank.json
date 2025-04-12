@@ -1,0 +1,23 @@
+[
+  { "formula": "H<sup>+</sup>", "answer": "氫離子" },
+  { "formula": "Li<sup>+</sup>", "answer": "鋰離子" },
+  { "formula": "Na<sup>+</sup>", "answer": "鈉離子" },
+  { "formula": "K<sup>+</sup>", "answer": "鉀離子" },
+  { "formula": "Ag<sup>+</sup>", "answer": "銀離子" },
+  { "formula": "Cu<sup>2+</sup>", "answer": "銅離子" },
+  { "formula": "Mg<sup>2+</sup>", "answer": "鎂離子" },
+  { "formula": "Ca<sup>2+</sup>", "answer": "鈣離子" },
+  { "formula": "Zn<sup>2+</sup>", "answer": "鋅離子" },
+  { "formula": "Fe<sup>3+</sup>", "answer": "鐵離子" },
+  { "formula": "Al<sup>3+</sup>", "answer": "鋁離子" },
+  { "formula": "NH<sub>4</sub><sup>+</sup>", "answer": "氨根" },
+  { "formula": "F<sup>-</sup>", "answer": "氟離子" },
+  { "formula": "Cl<sup>-</sup>", "answer": "氯離子" },
+  { "formula": "Br<sup>-</sup>", "answer": "溴離子" },
+  { "formula": "I<sup>-</sup>", "answer": "碘離子" },
+  { "formula": "OH<sup>-</sup>", "answer": "氫氧根" },
+  { "formula": "NO<sub>3</sub><sup>-</sup>", "answer": "硝酸根" },
+  { "formula": "HCO<sub>3</sub><sup>-</sup>", "answer": "碳酸氫根" },
+  { "formula": "SO<sub>4</sub><sup>2-</sup>", "answer": "硫酸根" },
+  { "formula": "CO<sub>3</sub><sup>2-</sup>", "answer": "碳酸根" }
+]
