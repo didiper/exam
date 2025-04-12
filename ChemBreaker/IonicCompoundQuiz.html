@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>化合物測驗</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>化合物中文名稱測驗</h1>
+        <button id="start-btn">開始</button>
+        <div id="timer">剩餘時間：180秒</div>
+      </div>
+
+      <div id="quiz" style="display: none">
+        <ol id="question-list"></ol>
+        <button id="show-answers-btn">顯示答案</button>
+      </div>
+
+      <div id="answer-section" style="display: none">
+        <h2>正確解離反應式：</h2>
+        <ol id="answer-list"></ol>
+      </div>
+
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
