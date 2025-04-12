@@ -1,124 +1,131 @@
-// script.js for IonicCompoundQuiz.html
+// ChemBreaker/script.js
 
-let questionBank = [];
-let currentQuestions = [];
-let currentIndex = 0;
-let timer = 180;
-let timerInterval;
-
-// 取得 DOM 元素
-const startButton = document.getElementById("start-button");
-const quizContainer = document.getElementById("quiz-container");
-const questionList = document.getElementById("question-list");
-const timerDisplay = document.getElementById("timer");
-const showAnswerButton = document.getElementById("show-answer-button");
-const answerSection = document.getElementById("answer-section");
-const answerList = document.getElementById("answer-list");
-
-// 讀取題庫 JSON
+// 載入離子題庫
+let ionBank = [];
 fetch("questionBank.json")
   .then((res) => res.json())
   .then((data) => {
-    questionBank = data;
+    ionBank = data;
+    generateQuestions();
   });
 
-startButton.addEventListener("click", () => {
-  startButton.style.display = "none";
-  quizContainer.style.display = "block";
-  generateQuestions();
-  startTimer();
-});
+const questionContainer = document.getElementById("question-container");
+const showAnswersButton = document.getElementById("show-answers-button");
+const timerDisplay = document.getElementById("timer-display");
+let timer = 180; // 3分鐘
+let timerInterval;
 
-showAnswerButton.addEventListener("click", () => {
-  answerSection.style.display = "block";
-});
+let questions = [];
+let usedIons = {};
 
-function startTimer() {
-  timerDisplay.textContent = `倒數時間：${timer} 秒`;
+function getRandomIon(filter) {
+  let ion;
+  let attempts = 0;
+  do {
+    ion = ionBank[Math.floor(Math.random() * ionBank.length)];
+    attempts++;
+  } while (
+    (filter === "+" && !ion.formula.includes("+")) ||
+    (filter === "-" && !ion.formula.includes("-")) ||
+    (usedIons[ion.formula] || 0) >= 2
+  );
+  usedIons[ion.formula] = (usedIons[ion.formula] || 0) + 1;
+  return ion;
+}
+
+function getCharge(formula) {
+  const match = formula.match(/<sup>([\d]*)([+-])<\/sup>/);
+  if (!match) return 0;
+  const number = match[1] === "" ? 1 : parseInt(match[1]);
+  return match[2] === "+" ? number : -number;
+}
+
+function getSubscript(n) {
+  return n === 1 ? "" : `<sub>${n}</sub>`;
+}
+
+function generateFormula(ion1, ion2) {
+  const charge1 = getCharge(ion1.formula);
+  const charge2 = getCharge(ion2.formula);
+
+  const lcm = (a, b) => (a * b) / gcd(a, b);
+  const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
+
+  const commonMultiple = lcm(Math.abs(charge1), Math.abs(charge2));
+  const ratio1 = commonMultiple / Math.abs(charge1);
+  const ratio2 = commonMultiple / Math.abs(charge2);
+
+  const formula =
+    ion1.formula.replace(/<.*?>/g, "") + getSubscript(ratio1) +
+    ion2.formula.replace(/<.*?>/g, "") + getSubscript(ratio2);
+
+  return formula;
+}
+
+function generateDissociation(formula, ion1, ion2, ratio1, ratio2) {
+  const arrow = "\u2192";
+  return `${formula} ${arrow} ${ratio1 > 1 ? ratio1 : ""}${ion1.formula} + ${
+    ratio2 > 1 ? ratio2 : ""
+  }${ion2.formula}`;
+}
+
+function generateQuestions() {
+  // 產生題目並啟動倒數
+  questions = [];
+  questionContainer.innerHTML = "";
+  usedIons = {};
+
+  for (let i = 0; i < 10; i++) {
+    const cation = getRandomIon("+");
+    const anion = getRandomIon("-");
+
+    const charge1 = getCharge(cation.formula);
+    const charge2 = getCharge(anion.formula);
+
+    const lcm = (a, b) => (a * b) / gcd(a, b);
+    const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
+    const commonMultiple = lcm(Math.abs(charge1), Math.abs(charge2));
+    const ratio1 = commonMultiple / Math.abs(charge1);
+    const ratio2 = commonMultiple / Math.abs(charge2);
+
+    const formula =
+      cation.formula.replace(/<.*?>/g, "") + getSubscript(ratio1) +
+      anion.formula.replace(/<.*?>/g, "") + getSubscript(ratio2);
+
+    const compoundName = `${anion.answer}${cation.answer}`;
+    const dissociation = generateDissociation(
+      formula,
+      cation,
+      anion,
+      ratio1,
+      ratio2
+    );
+
+    const item = document.createElement("div");
+    item.className = "question-item";
+    item.innerHTML = `
+      <div class="question-title">${i + 1}. ${compoundName}</div>
+      <div class="dissociation" style="display:none">${dissociation}</div>
+    `;
+    questionContainer.appendChild(item);
+  }
+
+  // 啟動計時
   timerInterval = setInterval(() => {
     timer--;
-    timerDisplay.textContent = `倒數時間：${timer} 秒`;
+    timerDisplay.textContent = `剩餘時間：${timer} 秒`;
     if (timer <= 0) {
       clearInterval(timerInterval);
-      showAnswerButton.disabled = false;
+      showAnswers();
     }
   }, 1000);
 }
 
-function generateQuestions() {
-  const usedCations = new Map();
-  const usedAnions = new Map();
-  currentQuestions = [];
-
-  while (currentQuestions.length < 10) {
-    const cation = getRandomItem(questionBank.filter(q => q.type === "cation"));
-    const anion = getRandomItem(questionBank.filter(q => q.type === "anion"));
-
-    const cationName = cation.answer;
-    const anionName = anion.answer;
-
-    if ((usedCations.get(cationName) || 0) >= 2) continue;
-    if ((usedAnions.get(anionName) || 0) >= 2) continue;
-
-    usedCations.set(cationName, (usedCations.get(cationName) || 0) + 1);
-    usedAnions.set(anionName, (usedAnions.get(anionName) || 0) + 1);
-
-    const compoundName = `${anionName}${cationName}`;
-    const compoundFormula = combineFormula(cation.formula, anion.formula);
-    const dissociation = `${compoundFormula} → ${cation.formula} + ${anion.formula}`;
-
-    currentQuestions.push({ compoundName, compoundFormula, dissociation });
-  }
-
-  renderQuestions();
-}
-
-function renderQuestions() {
-  questionList.innerHTML = "";
-  answerList.innerHTML = "";
-  currentQuestions.forEach((q, idx) => {
-    const qElem = document.createElement("div");
-    qElem.className = "question";
-    qElem.innerHTML = `第 ${idx + 1} 題：${q.compoundName}`;
-    questionList.appendChild(qElem);
-
-    const ansElem = document.createElement("div");
-    ansElem.className = "dissociation-line";
-    ansElem.innerHTML = `第 ${idx + 1} 題解離反應：${q.dissociation}`;
-    answerList.appendChild(ansElem);
+function showAnswers() {
+  document.querySelectorAll(".dissociation").forEach((el) => {
+    el.style.display = "block";
   });
+  showAnswersButton.disabled = true;
 }
 
-function getRandomItem(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
-function combineFormula(cation, anion) {
-  const cationCharge = extractCharge(cation);
-  const anionCharge = extractCharge(anion);
-  const lcm = getLCM(cationCharge, anionCharge);
-  const cationCount = lcm / cationCharge;
-  const anionCount = lcm / anionCharge;
-
-  const cationPart = cationCount > 1 ? wrapFormula(cation, cationCount) : cation.replace(/<sup>.*?<\/sup>/g, "");
-  const anionPart = anionCount > 1 ? wrapFormula(anion, anionCount) : anion.replace(/<sup>.*?<\/sup>/g, "");
-  return cationPart + anionPart;
-}
-
-function extractCharge(formula) {
-  const supMatch = formula.match(/<sup>(.*?)<\/sup>/);
-  if (!supMatch) return 1;
-  const raw = supMatch[1];
-  const num = parseInt(raw.replace("+", "").replace("-", ""));
-  return num || 1;
-}
-
-function getLCM(a, b) {
-  const gcd = (x, y) => (!y ? x : gcd(y, x % y));
-  return (a * b) / gcd(a, b);
-}
-
-function wrapFormula(formula, count) {
-  const base = formula.replace(/<sub>.*?<\/sub>|<sup>.*?<\/sup>/g, "");
-  return base + (count > 1 ? `<sub>${count}</sub>` : "");
-}
+showAnswersButton.addEventListener("click", showAnswers);
