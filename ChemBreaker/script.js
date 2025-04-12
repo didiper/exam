@@ -1,131 +1,93 @@
-// ChemBreaker/script.js
+// script.js
 
-// 載入離子題庫
-let ionBank = [];
+// 題庫資料
+let ions = [];
+let usedIons = {}; // 用來統計離子出現次數
+let quizContainer = document.getElementById("quiz");
+let showAnswersButton = document.getElementById("show-answers");
+let timerDisplay = document.getElementById("timer");
+let timer = 180;
+let interval;
+
+// 載入題庫後產生題目
 fetch("questionBank.json")
   .then((res) => res.json())
   .then((data) => {
-    ionBank = data;
-    generateQuestions();
+    ions = data;
+    generateQuiz();
+    startTimer();
   });
 
-const questionContainer = document.getElementById("question-container");
-const showAnswersButton = document.getElementById("show-answers-button");
-const timerDisplay = document.getElementById("timer-display");
-let timer = 180; // 3分鐘
-let timerInterval;
+// 隨機挑選一個離子（type: "cation" 或 "anion"）且不能重複出現超過兩次
+function pickIon(type) {
+  let filtered = ions.filter((ion) => {
+    if (type === "cation") return !ion.answer.includes("根");
+    if (type === "anion") return ion.answer.includes("根") || ion.answer.includes("酸");
+  });
 
-let questions = [];
-let usedIons = {};
-
-function getRandomIon(filter) {
-  let ion;
-  let attempts = 0;
+  let selected;
   do {
-    ion = ionBank[Math.floor(Math.random() * ionBank.length)];
-    attempts++;
-  } while (
-    (filter === "+" && !ion.formula.includes("+")) ||
-    (filter === "-" && !ion.formula.includes("-")) ||
-    (usedIons[ion.formula] || 0) >= 2
-  );
-  usedIons[ion.formula] = (usedIons[ion.formula] || 0) + 1;
-  return ion;
+    selected = filtered[Math.floor(Math.random() * filtered.length)];
+  } while ((usedIons[selected.answer] || 0) >= 2);
+
+  usedIons[selected.answer] = (usedIons[selected.answer] || 0) + 1;
+  return selected;
 }
 
-function getCharge(formula) {
-  const match = formula.match(/<sup>([\d]*)([+-])<\/sup>/);
-  if (!match) return 0;
-  const number = match[1] === "" ? 1 : parseInt(match[1]);
-  return match[2] === "+" ? number : -number;
-}
+// 計算最小公倍數與係數
+function getRatio(cationFormula, anionFormula) {
+  const getCharge = (f) => {
+    const match = f.match(/([0-9]+)?\<sup>([0-9]?)([+-])\<\/sup>/);
+    if (!match) return 1;
+    let val = parseInt(match[2] || "1");
+    return match[3] === "+" ? val : -val;
+  };
 
-function getSubscript(n) {
-  return n === 1 ? "" : `<sub>${n}</sub>`;
-}
-
-function generateFormula(ion1, ion2) {
-  const charge1 = getCharge(ion1.formula);
-  const charge2 = getCharge(ion2.formula);
-
-  const lcm = (a, b) => (a * b) / gcd(a, b);
   const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
+  const lcm = (a, b) => Math.abs(a * b) / gcd(a, b);
 
-  const commonMultiple = lcm(Math.abs(charge1), Math.abs(charge2));
-  const ratio1 = commonMultiple / Math.abs(charge1);
-  const ratio2 = commonMultiple / Math.abs(charge2);
+  const c = getCharge(cationFormula);
+  const a = -getCharge(anionFormula);
+  const l = lcm(c, a);
 
-  const formula =
-    ion1.formula.replace(/<.*?>/g, "") + getSubscript(ratio1) +
-    ion2.formula.replace(/<.*?>/g, "") + getSubscript(ratio2);
-
-  return formula;
+  return [l / c, l / a];
 }
 
-function generateDissociation(formula, ion1, ion2, ratio1, ratio2) {
-  const arrow = "\u2192";
-  return `${formula} ${arrow} ${ratio1 > 1 ? ratio1 : ""}${ion1.formula} + ${
-    ratio2 > 1 ? ratio2 : ""
-  }${ion2.formula}`;
-}
-
-function generateQuestions() {
-  // 產生題目並啟動倒數
-  questions = [];
-  questionContainer.innerHTML = "";
-  usedIons = {};
-
+// 顯示 10 題題目
+function generateQuiz() {
   for (let i = 0; i < 10; i++) {
-    const cation = getRandomIon("+");
-    const anion = getRandomIon("-");
+    const cation = pickIon("cation");
+    const anion = pickIon("anion");
 
-    const charge1 = getCharge(cation.formula);
-    const charge2 = getCharge(anion.formula);
+    const [cCount, aCount] = getRatio(cation.formula, anion.formula);
 
-    const lcm = (a, b) => (a * b) / gcd(a, b);
-    const gcd = (a, b) => (b === 0 ? a : gcd(b, a % b));
-    const commonMultiple = lcm(Math.abs(charge1), Math.abs(charge2));
-    const ratio1 = commonMultiple / Math.abs(charge1);
-    const ratio2 = commonMultiple / Math.abs(charge2);
+    let formula = "";
+    formula += cCount > 1 ? `(${cation.formula})${cCount}` : cation.formula;
+    formula += aCount > 1 ? `(${anion.formula})${aCount}` : anion.formula;
 
-    const formula =
-      cation.formula.replace(/<.*?>/g, "") + getSubscript(ratio1) +
-      anion.formula.replace(/<.*?>/g, "") + getSubscript(ratio2);
-
-    const compoundName = `${anion.answer}${cation.answer}`;
-    const dissociation = generateDissociation(
-      formula,
-      cation,
-      anion,
-      ratio1,
-      ratio2
-    );
+    const compoundName = `${anion.answer.replace("根", "").replace("酸", "")} ${cation.answer}`;
 
     const item = document.createElement("div");
-    item.className = "question-item";
-    item.innerHTML = `
-      <div class="question-title">${i + 1}. ${compoundName}</div>
-      <div class="dissociation" style="display:none">${dissociation}</div>
-    `;
-    questionContainer.appendChild(item);
+    item.className = "quiz-item";
+    item.innerHTML = `<p><strong>題目 ${i + 1}：</strong>${compoundName}</p>
+      <div class="answer hidden">${formula} → ${cation.formula.repeat(cCount)} + ${anion.formula.repeat(aCount)}</div>`;
+    quizContainer.appendChild(item);
   }
+}
 
-  // 啟動計時
-  timerInterval = setInterval(() => {
+// 顯示答案
+showAnswersButton.addEventListener("click", () => {
+  document.querySelectorAll(".answer").forEach((el) => el.classList.remove("hidden"));
+});
+
+// 計時器
+function startTimer() {
+  interval = setInterval(() => {
     timer--;
-    timerDisplay.textContent = `剩餘時間：${timer} 秒`;
+    timerDisplay.textContent = `時間：${timer} 秒`;
     if (timer <= 0) {
-      clearInterval(timerInterval);
-      showAnswers();
+      clearInterval(interval);
+      showAnswersButton.click();
     }
   }, 1000);
 }
-
-function showAnswers() {
-  document.querySelectorAll(".dissociation").forEach((el) => {
-    el.style.display = "block";
-  });
-  showAnswersButton.disabled = true;
-}
-
-showAnswersButton.addEventListener("click", showAnswers);
