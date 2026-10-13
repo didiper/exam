@@ -1,1 +1,165 @@
+/* 全局設定 */
 
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+
+/* 開始畫面 */
+
+.start-screen {
+  margin-top: 100px;
+}
+
+.start-screen h1 {
+  font-size: 36px;
+}
+
+
+/* 測驗容器 */
+
+.container {
+  margin-top: 50px;
+}
+
+
+/* 題目框 */
+
+.question-box {
+  display: inline-block;
+  padding: 25px 50px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 42px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+
+/* 計時器 */
+
+.timer {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+
+/* 分數 */
+
+.score {
+  font-size: 26px;
+  color: #333;
+  font-weight: bold;
+}
+
+
+/* 按鈕 */
+
+button {
+  margin: 5px;
+  padding: 12px 25px;
+  font-size: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+
+/* 選項按鈕 */
+
+.option-button {
+  display: block;
+  width: 300px;
+  max-width: 90%;
+  margin: 12px auto;
+  padding: 15px;
+  font-size: 22px;
+}
+
+
+/* 正確答案 */
+
+.option-button.correct {
+  background-color: #28a745;
+}
+
+
+/* 錯誤答案 */
+
+.option-button.incorrect {
+  background-color: #dc3545;
+}
+
+
+/* 禁用按鈕 */
+
+button:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+
+/* 下一題 */
+
+.next-button {
+  margin-top: 20px;
+  background-color: #28a745;
+}
+
+.next-button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+
+/* 作答結果 */
+
+#result {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  min-height: 30px;
+}
+
+
+/* 結束畫面 */
+
+.end-screen {
+  margin: 50px auto;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.end-screen p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
+
+.end-screen h3 {
+  font-size: 24px;
+  color: red;
+  margin-top: 30px;
+}
+
+
+/* 錯題列表 */
+
+#incorrect-list {
+  text-align: left;
+  font-size: 18px;
+  line-height: 1.8;
+  padding-left: 30px;
+}
