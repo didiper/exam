@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>沉澱表練習</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
+  <body>
+    <div class="start-screen">
+      <h1>沉澱表練習</h1>
+      <p>判斷化合物在水中的溶解性</p>
+      <button id="start-button" onclick="startChallenge()">開始挑戰</button>
+    </div>
+
+    <div class="container" style="display: none" id="quiz-container">
+      <div class="timer" id="timer-display">時間：40秒</div>
+      <div class="score" id="score-display">分數：0</div>
+
+      <div class="question-box" id="word-box"></div>
+
+      <p>請選擇此物質的溶解性：</p>
+
+      <div id="options"></div>
+
+      <div id="result"></div>
+
+      <div class="button-group">
+        <button class="next-button" id="next-button" onclick="randomQuestion()" disabled>
+          下一題
+        </button>
+      </div>
+    </div>
+
+    <div class="end-screen" style="display: none" id="end-screen">
+      <h2>時間到！</h2>
+
+      <p id="final-score">你的分數是：0</p>
+      <p id="total-questions">總答題數：0</p>
+      <p id="correct-questions">答對題數：0</p>
+      <p id="incorrect-questions-count">答錯題數：0</p>
+      <p id="accuracy">答對率：0%</p>
+
+      <h3>選錯的題目：</h3>
+      <ul id="incorrect-list"></ul>
+
+      <button onclick="restartGame()">重新挑戰</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
