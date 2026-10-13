@@ -2,7 +2,7 @@
 // 基本設定
 // ========================
 
-const GAME_TIME = 40;
+const GAME_TIME = 60;
 
 let questionBank = [];
 let currentQuestion = null;
