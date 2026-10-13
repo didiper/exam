@@ -9,6 +9,8 @@ let currentQuestion = null;
 
 let score = 0;
 let timer = GAME_TIME;
+document.getElementById("timer-display").textContent =
+  `時間：${GAME_TIME}秒`;
 let timerInterval = null;
 
 let hasAnswered = false;
