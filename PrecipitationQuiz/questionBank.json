@@ -1,27 +1,956 @@
 [
   {
+    "formula": "LiNO3",
+    "name": "硝酸鋰",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "NaNO3",
+    "name": "硝酸鈉",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "KNO3",
+    "name": "硝酸鉀",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "NH4NO3",
+    "name": "硝酸銨",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "Mg(NO3)2",
+    "name": "硝酸鎂",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "Ca(NO3)2",
+    "name": "硝酸鈣",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "Sr(NO3)2",
+    "name": "硝酸鍶",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "Ba(NO3)2",
+    "name": "硝酸鋇",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "Al(NO3)3",
+    "name": "硝酸鋁",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "Fe(NO3)2",
+    "name": "硝酸亞鐵",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "Fe(NO3)3",
+    "name": "硝酸鐵",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "Cu(NO3)2",
+    "name": "硝酸銅",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "Zn(NO3)2",
+    "name": "硝酸鋅",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "AgNO3",
+    "name": "硝酸銀",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "Pb(NO3)2",
+    "name": "硝酸鉛",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "Ni(NO3)2",
+    "name": "硝酸鎳",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "Co(NO3)2",
+    "name": "硝酸鈷",
+    "solubility": "可溶",
+    "group": "01 硝酸鹽 NO3-"
+  },
+  {
+    "formula": "CH3COONa",
+    "name": "乙酸鈉",
+    "solubility": "可溶",
+    "group": "02 乙酸鹽 CH3COO-"
+  },
+  {
+    "formula": "CH3COOK",
+    "name": "乙酸鉀",
+    "solubility": "可溶",
+    "group": "02 乙酸鹽 CH3COO-"
+  },
+  {
+    "formula": "CH3COONH4",
+    "name": "乙酸銨",
+    "solubility": "可溶",
+    "group": "02 乙酸鹽 CH3COO-"
+  },
+  {
+    "formula": "Mg(CH3COO)2",
+    "name": "乙酸鎂",
+    "solubility": "可溶",
+    "group": "02 乙酸鹽 CH3COO-"
+  },
+  {
+    "formula": "Ca(CH3COO)2",
+    "name": "乙酸鈣",
+    "solubility": "可溶",
+    "group": "02 乙酸鹽 CH3COO-"
+  },
+  {
+    "formula": "Ba(CH3COO)2",
+    "name": "乙酸鋇",
+    "solubility": "可溶",
+    "group": "02 乙酸鹽 CH3COO-"
+  },
+  {
+    "formula": "Cu(CH3COO)2",
+    "name": "乙酸銅",
+    "solubility": "可溶",
+    "group": "02 乙酸鹽 CH3COO-"
+  },
+  {
+    "formula": "Zn(CH3COO)2",
+    "name": "乙酸鋅",
+    "solubility": "可溶",
+    "group": "02 乙酸鹽 CH3COO-"
+  },
+  {
+    "formula": "Pb(CH3COO)2",
+    "name": "乙酸鉛",
+    "solubility": "可溶",
+    "group": "02 乙酸鹽 CH3COO-"
+  },
+  {
+    "formula": "LiCl",
+    "name": "氯化鋰",
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
     "formula": "NaCl",
     "name": "氯化鈉",
-    "solubility": "可溶"
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "KCl",
+    "name": "氯化鉀",
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "NH4Cl",
+    "name": "氯化銨",
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "MgCl2",
+    "name": "氯化鎂",
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "CaCl2",
+    "name": "氯化鈣",
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "SrCl2",
+    "name": "氯化鍶",
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "BaCl2",
+    "name": "氯化鋇",
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "AlCl3",
+    "name": "氯化鋁",
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "FeCl2",
+    "name": "氯化亞鐵",
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "FeCl3",
+    "name": "氯化鐵",
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "CuCl2",
+    "name": "氯化銅",
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "ZnCl2",
+    "name": "氯化鋅",
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "NiCl2",
+    "name": "氯化鎳",
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "CoCl2",
+    "name": "氯化鈷",
+    "solubility": "可溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "PbCl2",
+    "name": "氯化鉛",
+    "solubility": "微溶",
+    "group": "03 氯化物 Cl-"
   },
   {
     "formula": "AgCl",
     "name": "氯化銀",
-    "solubility": "難溶"
+    "solubility": "難溶",
+    "group": "03 氯化物 Cl-"
   },
   {
-    "formula": "BaSO4",
-    "name": "硫酸鋇",
-    "solubility": "難溶"
+    "formula": "Hg2Cl2",
+    "name": "氯化亞汞",
+    "solubility": "難溶",
+    "group": "03 氯化物 Cl-"
+  },
+  {
+    "formula": "NaBr",
+    "name": "溴化鈉",
+    "solubility": "可溶",
+    "group": "04 溴化物 Br-"
+  },
+  {
+    "formula": "KBr",
+    "name": "溴化鉀",
+    "solubility": "可溶",
+    "group": "04 溴化物 Br-"
+  },
+  {
+    "formula": "NH4Br",
+    "name": "溴化銨",
+    "solubility": "可溶",
+    "group": "04 溴化物 Br-"
+  },
+  {
+    "formula": "MgBr2",
+    "name": "溴化鎂",
+    "solubility": "可溶",
+    "group": "04 溴化物 Br-"
+  },
+  {
+    "formula": "CaBr2",
+    "name": "溴化鈣",
+    "solubility": "可溶",
+    "group": "04 溴化物 Br-"
+  },
+  {
+    "formula": "BaBr2",
+    "name": "溴化鋇",
+    "solubility": "可溶",
+    "group": "04 溴化物 Br-"
+  },
+  {
+    "formula": "FeBr2",
+    "name": "溴化亞鐵",
+    "solubility": "可溶",
+    "group": "04 溴化物 Br-"
+  },
+  {
+    "formula": "CuBr2",
+    "name": "溴化銅",
+    "solubility": "可溶",
+    "group": "04 溴化物 Br-"
+  },
+  {
+    "formula": "ZnBr2",
+    "name": "溴化鋅",
+    "solubility": "可溶",
+    "group": "04 溴化物 Br-"
+  },
+  {
+    "formula": "PbBr2",
+    "name": "溴化鉛",
+    "solubility": "微溶",
+    "group": "04 溴化物 Br-"
+  },
+  {
+    "formula": "AgBr",
+    "name": "溴化銀",
+    "solubility": "難溶",
+    "group": "04 溴化物 Br-"
+  },
+  {
+    "formula": "Hg2Br2",
+    "name": "溴化亞汞",
+    "solubility": "難溶",
+    "group": "04 溴化物 Br-"
+  },
+  {
+    "formula": "NaI",
+    "name": "碘化鈉",
+    "solubility": "可溶",
+    "group": "05 碘化物 I-"
+  },
+  {
+    "formula": "KI",
+    "name": "碘化鉀",
+    "solubility": "可溶",
+    "group": "05 碘化物 I-"
+  },
+  {
+    "formula": "NH4I",
+    "name": "碘化銨",
+    "solubility": "可溶",
+    "group": "05 碘化物 I-"
+  },
+  {
+    "formula": "MgI2",
+    "name": "碘化鎂",
+    "solubility": "可溶",
+    "group": "05 碘化物 I-"
+  },
+  {
+    "formula": "CaI2",
+    "name": "碘化鈣",
+    "solubility": "可溶",
+    "group": "05 碘化物 I-"
+  },
+  {
+    "formula": "BaI2",
+    "name": "碘化鋇",
+    "solubility": "可溶",
+    "group": "05 碘化物 I-"
+  },
+  {
+    "formula": "FeI2",
+    "name": "碘化亞鐵",
+    "solubility": "可溶",
+    "group": "05 碘化物 I-"
+  },
+  {
+    "formula": "ZnI2",
+    "name": "碘化鋅",
+    "solubility": "可溶",
+    "group": "05 碘化物 I-"
+  },
+  {
+    "formula": "AgI",
+    "name": "碘化銀",
+    "solubility": "難溶",
+    "group": "05 碘化物 I-"
+  },
+  {
+    "formula": "PbI2",
+    "name": "碘化鉛",
+    "solubility": "難溶",
+    "group": "05 碘化物 I-"
+  },
+  {
+    "formula": "Hg2I2",
+    "name": "碘化亞汞",
+    "solubility": "難溶",
+    "group": "05 碘化物 I-"
+  },
+  {
+    "formula": "Li2SO4",
+    "name": "硫酸鋰",
+    "solubility": "可溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "Na2SO4",
+    "name": "硫酸鈉",
+    "solubility": "可溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "K2SO4",
+    "name": "硫酸鉀",
+    "solubility": "可溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "(NH4)2SO4",
+    "name": "硫酸銨",
+    "solubility": "可溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "MgSO4",
+    "name": "硫酸鎂",
+    "solubility": "可溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "Al2(SO4)3",
+    "name": "硫酸鋁",
+    "solubility": "可溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "FeSO4",
+    "name": "硫酸亞鐵",
+    "solubility": "可溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "Fe2(SO4)3",
+    "name": "硫酸鐵",
+    "solubility": "可溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "CuSO4",
+    "name": "硫酸銅",
+    "solubility": "可溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "ZnSO4",
+    "name": "硫酸鋅",
+    "solubility": "可溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "NiSO4",
+    "name": "硫酸鎳",
+    "solubility": "可溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "CoSO4",
+    "name": "硫酸鈷",
+    "solubility": "可溶",
+    "group": "06 硫酸鹽 SO4^2-"
   },
   {
     "formula": "CaSO4",
     "name": "硫酸鈣",
-    "solubility": "微溶"
+    "solubility": "微溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "Ag2SO4",
+    "name": "硫酸銀",
+    "solubility": "微溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "SrSO4",
+    "name": "硫酸鍶",
+    "solubility": "難溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "BaSO4",
+    "name": "硫酸鋇",
+    "solubility": "難溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "PbSO4",
+    "name": "硫酸鉛",
+    "solubility": "難溶",
+    "group": "06 硫酸鹽 SO4^2-"
+  },
+  {
+    "formula": "Na2CO3",
+    "name": "碳酸鈉",
+    "solubility": "可溶",
+    "group": "07 碳酸鹽 CO3^2-"
+  },
+  {
+    "formula": "K2CO3",
+    "name": "碳酸鉀",
+    "solubility": "可溶",
+    "group": "07 碳酸鹽 CO3^2-"
+  },
+  {
+    "formula": "(NH4)2CO3",
+    "name": "碳酸銨",
+    "solubility": "可溶",
+    "group": "07 碳酸鹽 CO3^2-"
+  },
+  {
+    "formula": "MgCO3",
+    "name": "碳酸鎂",
+    "solubility": "難溶",
+    "group": "07 碳酸鹽 CO3^2-"
   },
   {
     "formula": "CaCO3",
     "name": "碳酸鈣",
-    "solubility": "難溶"
+    "solubility": "難溶",
+    "group": "07 碳酸鹽 CO3^2-"
+  },
+  {
+    "formula": "SrCO3",
+    "name": "碳酸鍶",
+    "solubility": "難溶",
+    "group": "07 碳酸鹽 CO3^2-"
+  },
+  {
+    "formula": "BaCO3",
+    "name": "碳酸鋇",
+    "solubility": "難溶",
+    "group": "07 碳酸鹽 CO3^2-"
+  },
+  {
+    "formula": "FeCO3",
+    "name": "碳酸亞鐵",
+    "solubility": "難溶",
+    "group": "07 碳酸鹽 CO3^2-"
+  },
+  {
+    "formula": "ZnCO3",
+    "name": "碳酸鋅",
+    "solubility": "難溶",
+    "group": "07 碳酸鹽 CO3^2-"
+  },
+  {
+    "formula": "Ag2CO3",
+    "name": "碳酸銀",
+    "solubility": "難溶",
+    "group": "07 碳酸鹽 CO3^2-"
+  },
+  {
+    "formula": "PbCO3",
+    "name": "碳酸鉛",
+    "solubility": "難溶",
+    "group": "07 碳酸鹽 CO3^2-"
+  },
+  {
+    "formula": "NiCO3",
+    "name": "碳酸鎳",
+    "solubility": "難溶",
+    "group": "07 碳酸鹽 CO3^2-"
+  },
+  {
+    "formula": "CoCO3",
+    "name": "碳酸鈷",
+    "solubility": "難溶",
+    "group": "07 碳酸鹽 CO3^2-"
+  },
+  {
+    "formula": "Na3PO4",
+    "name": "磷酸鈉",
+    "solubility": "可溶",
+    "group": "08 磷酸鹽 PO4^3-"
+  },
+  {
+    "formula": "K3PO4",
+    "name": "磷酸鉀",
+    "solubility": "可溶",
+    "group": "08 磷酸鹽 PO4^3-"
+  },
+  {
+    "formula": "(NH4)3PO4",
+    "name": "磷酸銨",
+    "solubility": "可溶",
+    "group": "08 磷酸鹽 PO4^3-"
+  },
+  {
+    "formula": "Mg3(PO4)2",
+    "name": "磷酸鎂",
+    "solubility": "難溶",
+    "group": "08 磷酸鹽 PO4^3-"
+  },
+  {
+    "formula": "Ca3(PO4)2",
+    "name": "磷酸鈣",
+    "solubility": "難溶",
+    "group": "08 磷酸鹽 PO4^3-"
+  },
+  {
+    "formula": "Sr3(PO4)2",
+    "name": "磷酸鍶",
+    "solubility": "難溶",
+    "group": "08 磷酸鹽 PO4^3-"
+  },
+  {
+    "formula": "Ba3(PO4)2",
+    "name": "磷酸鋇",
+    "solubility": "難溶",
+    "group": "08 磷酸鹽 PO4^3-"
+  },
+  {
+    "formula": "AlPO4",
+    "name": "磷酸鋁",
+    "solubility": "難溶",
+    "group": "08 磷酸鹽 PO4^3-"
+  },
+  {
+    "formula": "Fe3(PO4)2",
+    "name": "磷酸亞鐵",
+    "solubility": "難溶",
+    "group": "08 磷酸鹽 PO4^3-"
+  },
+  {
+    "formula": "FePO4",
+    "name": "磷酸鐵",
+    "solubility": "難溶",
+    "group": "08 磷酸鹽 PO4^3-"
+  },
+  {
+    "formula": "Cu3(PO4)2",
+    "name": "磷酸銅",
+    "solubility": "難溶",
+    "group": "08 磷酸鹽 PO4^3-"
+  },
+  {
+    "formula": "Zn3(PO4)2",
+    "name": "磷酸鋅",
+    "solubility": "難溶",
+    "group": "08 磷酸鹽 PO4^3-"
+  },
+  {
+    "formula": "Ag3PO4",
+    "name": "磷酸銀",
+    "solubility": "難溶",
+    "group": "08 磷酸鹽 PO4^3-"
+  },
+  {
+    "formula": "Pb3(PO4)2",
+    "name": "磷酸鉛",
+    "solubility": "難溶",
+    "group": "08 磷酸鹽 PO4^3-"
+  },
+  {
+    "formula": "Na2SO3",
+    "name": "亞硫酸鈉",
+    "solubility": "可溶",
+    "group": "09 亞硫酸鹽 SO3^2-"
+  },
+  {
+    "formula": "K2SO3",
+    "name": "亞硫酸鉀",
+    "solubility": "可溶",
+    "group": "09 亞硫酸鹽 SO3^2-"
+  },
+  {
+    "formula": "(NH4)2SO3",
+    "name": "亞硫酸銨",
+    "solubility": "可溶",
+    "group": "09 亞硫酸鹽 SO3^2-"
+  },
+  {
+    "formula": "CaSO3",
+    "name": "亞硫酸鈣",
+    "solubility": "難溶",
+    "group": "09 亞硫酸鹽 SO3^2-"
+  },
+  {
+    "formula": "SrSO3",
+    "name": "亞硫酸鍶",
+    "solubility": "難溶",
+    "group": "09 亞硫酸鹽 SO3^2-"
+  },
+  {
+    "formula": "BaSO3",
+    "name": "亞硫酸鋇",
+    "solubility": "難溶",
+    "group": "09 亞硫酸鹽 SO3^2-"
+  },
+  {
+    "formula": "ZnSO3",
+    "name": "亞硫酸鋅",
+    "solubility": "難溶",
+    "group": "09 亞硫酸鹽 SO3^2-"
+  },
+  {
+    "formula": "Ag2SO3",
+    "name": "亞硫酸銀",
+    "solubility": "難溶",
+    "group": "09 亞硫酸鹽 SO3^2-"
+  },
+  {
+    "formula": "PbSO3",
+    "name": "亞硫酸鉛",
+    "solubility": "難溶",
+    "group": "09 亞硫酸鹽 SO3^2-"
+  },
+  {
+    "formula": "LiOH",
+    "name": "氫氧化鋰",
+    "solubility": "可溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "NaOH",
+    "name": "氫氧化鈉",
+    "solubility": "可溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "KOH",
+    "name": "氫氧化鉀",
+    "solubility": "可溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "Ba(OH)2",
+    "name": "氫氧化鋇",
+    "solubility": "可溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "Ca(OH)2",
+    "name": "氫氧化鈣",
+    "solubility": "微溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "Sr(OH)2",
+    "name": "氫氧化鍶",
+    "solubility": "微溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "Mg(OH)2",
+    "name": "氫氧化鎂",
+    "solubility": "難溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "Al(OH)3",
+    "name": "氫氧化鋁",
+    "solubility": "難溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "Fe(OH)2",
+    "name": "氫氧化亞鐵",
+    "solubility": "難溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "Fe(OH)3",
+    "name": "氫氧化鐵",
+    "solubility": "難溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "Cu(OH)2",
+    "name": "氫氧化銅",
+    "solubility": "難溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "Zn(OH)2",
+    "name": "氫氧化鋅",
+    "solubility": "難溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "Pb(OH)2",
+    "name": "氫氧化鉛",
+    "solubility": "難溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "Ni(OH)2",
+    "name": "氫氧化鎳",
+    "solubility": "難溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "Co(OH)2",
+    "name": "氫氧化鈷",
+    "solubility": "難溶",
+    "group": "10 氫氧化物 OH-"
+  },
+  {
+    "formula": "Na2S",
+    "name": "硫化鈉",
+    "solubility": "可溶",
+    "group": "11 硫化物 S^2-"
+  },
+  {
+    "formula": "K2S",
+    "name": "硫化鉀",
+    "solubility": "可溶",
+    "group": "11 硫化物 S^2-"
+  },
+  {
+    "formula": "(NH4)2S",
+    "name": "硫化銨",
+    "solubility": "可溶",
+    "group": "11 硫化物 S^2-"
+  },
+  {
+    "formula": "FeS",
+    "name": "硫化亞鐵",
+    "solubility": "難溶",
+    "group": "11 硫化物 S^2-"
+  },
+  {
+    "formula": "CuS",
+    "name": "硫化銅",
+    "solubility": "難溶",
+    "group": "11 硫化物 S^2-"
+  },
+  {
+    "formula": "ZnS",
+    "name": "硫化鋅",
+    "solubility": "難溶",
+    "group": "11 硫化物 S^2-"
+  },
+  {
+    "formula": "Ag2S",
+    "name": "硫化銀",
+    "solubility": "難溶",
+    "group": "11 硫化物 S^2-"
+  },
+  {
+    "formula": "PbS",
+    "name": "硫化鉛",
+    "solubility": "難溶",
+    "group": "11 硫化物 S^2-"
+  },
+  {
+    "formula": "NiS",
+    "name": "硫化鎳",
+    "solubility": "難溶",
+    "group": "11 硫化物 S^2-"
+  },
+  {
+    "formula": "CoS",
+    "name": "硫化鈷",
+    "solubility": "難溶",
+    "group": "11 硫化物 S^2-"
+  },
+  {
+    "formula": "Na2CrO4",
+    "name": "鉻酸鈉",
+    "solubility": "可溶",
+    "group": "12 鉻酸鹽 CrO4^2-"
+  },
+  {
+    "formula": "K2CrO4",
+    "name": "鉻酸鉀",
+    "solubility": "可溶",
+    "group": "12 鉻酸鹽 CrO4^2-"
+  },
+  {
+    "formula": "(NH4)2CrO4",
+    "name": "鉻酸銨",
+    "solubility": "可溶",
+    "group": "12 鉻酸鹽 CrO4^2-"
+  },
+  {
+    "formula": "BaCrO4",
+    "name": "鉻酸鋇",
+    "solubility": "難溶",
+    "group": "12 鉻酸鹽 CrO4^2-"
+  },
+  {
+    "formula": "SrCrO4",
+    "name": "鉻酸鍶",
+    "solubility": "難溶",
+    "group": "12 鉻酸鹽 CrO4^2-"
+  },
+  {
+    "formula": "Ag2CrO4",
+    "name": "鉻酸銀",
+    "solubility": "難溶",
+    "group": "12 鉻酸鹽 CrO4^2-"
+  },
+  {
+    "formula": "PbCrO4",
+    "name": "鉻酸鉛",
+    "solubility": "難溶",
+    "group": "12 鉻酸鹽 CrO4^2-"
+  },
+  {
+    "formula": "NaF",
+    "name": "氟化鈉",
+    "solubility": "可溶",
+    "group": "13 氟化物 F-"
+  },
+  {
+    "formula": "KF",
+    "name": "氟化鉀",
+    "solubility": "可溶",
+    "group": "13 氟化物 F-"
+  },
+  {
+    "formula": "NH4F",
+    "name": "氟化銨",
+    "solubility": "可溶",
+    "group": "13 氟化物 F-"
+  },
+  {
+    "formula": "MgF2",
+    "name": "氟化鎂",
+    "solubility": "難溶",
+    "group": "13 氟化物 F-"
+  },
+  {
+    "formula": "CaF2",
+    "name": "氟化鈣",
+    "solubility": "難溶",
+    "group": "13 氟化物 F-"
+  },
+  {
+    "formula": "SrF2",
+    "name": "氟化鍶",
+    "solubility": "難溶",
+    "group": "13 氟化物 F-"
+  },
+  {
+    "formula": "BaF2",
+    "name": "氟化鋇",
+    "solubility": "難溶",
+    "group": "13 氟化物 F-"
   }
 ]
