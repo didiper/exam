@@ -1,1 +1,27 @@
-
+[
+  {
+    "formula": "NaCl",
+    "name": "氯化鈉",
+    "solubility": "可溶"
+  },
+  {
+    "formula": "AgCl",
+    "name": "氯化銀",
+    "solubility": "難溶"
+  },
+  {
+    "formula": "BaSO4",
+    "name": "硫酸鋇",
+    "solubility": "難溶"
+  },
+  {
+    "formula": "CaSO4",
+    "name": "硫酸鈣",
+    "solubility": "微溶"
+  },
+  {
+    "formula": "CaCO3",
+    "name": "碳酸鈣",
+    "solubility": "難溶"
+  }
+]
